@@ -2,8 +2,11 @@ import s from './style.module.css';
 import PropTypes from 'prop-types';
 
 const Layout = ({ title, descr, urlBg, colorBg = '#e2e2e2' }) => {
-    const bkgnd = urlBg ? { backgroundImage: `url(${urlBg})`, }
-                        : { backgroundColor: colorBg, };
+    const bkgnd = {
+        background: `${colorBg}${urlBg
+            ? ` url(${urlBg}) no-repeat fixed left bottom / cover`
+            : ''}`,
+    };
 
     return (
         <section className={s.root} style={bkgnd}>
